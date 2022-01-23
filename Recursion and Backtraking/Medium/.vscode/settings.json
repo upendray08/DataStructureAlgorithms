@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "Rat_in_maze.C": "cpp"
+        "Rat_in_maze.C": "cpp",
+        "palindrome-partioning.C": "cpp",
+        "permutation-I.C": "cpp",
+        "permutation-II.C": "cpp"
     }
 }
