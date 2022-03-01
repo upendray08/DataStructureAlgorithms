@@ -70,5 +70,9 @@ int main() {
 	myqueue.Dequeue();
 	myqueue.Enqueue(60);
 	myqueue.printQueue();
+    myqueue.Dequeue();
+    myqueue.printQueue();
+    myqueue.Enqueue(12);
+    myqueue.printQueue();
 	return 0;
 }
