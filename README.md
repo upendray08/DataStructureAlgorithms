@@ -1,2 +1,2 @@
-# 180-Leetcode-problems
+# Data Structure and Algorithms
 Leetcode problems 
