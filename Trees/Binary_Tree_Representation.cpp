@@ -41,6 +41,34 @@ void inorder(Node *node)
     cout << node->data << " ";
     inorder(node->right);
 }
+bool printpathroot(Node *root, vector<int> &ans, int val)
+{
+    if (root == NULL)
+    {
+        return false;
+    }
+    ans.push_back(root->data);
+    if (root->data == val)
+    {
+        return true;
+    }
+    if (printpathroot(root->left, ans, val) || printpathroot(root->right, ans, val))
+    {
+        return true;
+    }
+    ans.pop_back();
+    return false;
+}
+// int printpathfromroot(Node *root, int val)
+// {
+//     vector<int> ans;
+//     if (root == NULL)
+//     {
+//         return ans;
+//     }
+//     printpathroot(root, ans, val);
+//     return ans;
+// }
 int main()
 {
     Node *root = new Node(1);
@@ -62,5 +90,17 @@ int main()
     cout << "Post-Orders Tranversal:";
     postorder(root);
     cout << endl;
+
+    // checking the print path from root question
+
+    // int val = 9;
+    // vector<int> ans;
+    // printpathroot(root, ans, val);
+    // cout << "this is path of node-9 form root: ";
+    // for (auto i : ans)
+    // {
+    //     cout << i << " ";
+    // }
+
     return 0;
 }
