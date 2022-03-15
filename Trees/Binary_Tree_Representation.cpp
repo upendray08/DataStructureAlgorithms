@@ -11,6 +11,38 @@ struct Node
         left = right = NULL;
     }
 };
+vector<int>  morrisinorder(Node *node, vector<int> &ans)
+{
+    Node *curr = node;
+    while (curr!=NULL)
+    {
+        if (curr == NULL)
+        {
+            ans.push_back(curr->data);
+            curr = curr->right;
+        }
+        else
+        {
+            Node *prev = curr->left;
+            while (prev->right && prev->right != curr)
+            {
+                prev = prev->right;
+            }
+            if (prev->right == NULL)
+            {
+                prev->right = curr;
+                curr = curr->left;
+            }
+            else
+            {
+                prev->right = NULL;
+                ans.push_back(curr->data);
+                curr = curr->right;
+            }
+        }
+    }
+    return ans;
+}
 void preorder(Node *node)
 {
     if (node == NULL)
@@ -81,15 +113,15 @@ int main()
     root->right->right = new Node(8);
     root->right->right->left = new Node(9);
     root->right->right->right = new Node(10);
-    cout << "Pre-Order Tranversal:";
-    preorder(root);
-    cout << endl;
-    cout << "In-Order Tranversal:";
-    inorder(root);
-    cout << endl;
-    cout << "Post-Orders Tranversal:";
-    postorder(root);
-    cout << endl;
+    // cout << "Pre-Order Tranversal:";
+    // preorder(root);
+    // cout << endl;
+    // cout << "In-Order Tranversal:";
+    // inorder(root);
+    // cout << endl;
+    // cout << "Post-Orders Tranversal:";
+    // postorder(root);
+    // cout << endl;
 
     // checking the print path from root question
 
@@ -101,6 +133,8 @@ int main()
     // {
     //     cout << i << " ";
     // }
-
+    vector<int> a;
+    a = morrisinorder(root,a);
+    // cout << "morris inorder traversal: ";
     return 0;
 }
