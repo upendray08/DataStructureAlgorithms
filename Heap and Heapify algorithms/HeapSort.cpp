@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-// #define MAX 1000
 using namespace std;
 void heapify(int arr[], int n, int i)
 {
@@ -37,7 +36,7 @@ void buildheap(int arr[], int n)
 }
 void heapsort(int arr[], int n)
 {
-    for (int i = n-1 ; i >= 1; --i)
+    for (int i = n - 1; i >= 1; --i)
     {
         swap(arr[0], arr[i]);
         heapify(arr, i, 0);
@@ -45,9 +44,6 @@ void heapsort(int arr[], int n)
 }
 int main()
 {
-    // 10 ,30,50,20,35,15
-    // int arr[6] = {10, 30, 50, 20, 35, 15};
-    // int n = 6;
     int n;
     cin >> n;
     int arr[n];
@@ -55,10 +51,10 @@ int main()
     {
         cin >> arr[i];
     }
-    // getline(cin,arr);
     buildheap(arr, n);
     printarray(arr, n);
     heapsort(arr, n);
     printarray(arr, n);
+
     return 0;
 }
