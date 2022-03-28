@@ -12,7 +12,7 @@ void heapify(int arr[], int n, int i)
         heapify(arr, n, parent);
     }
 }
-void insertLeaf(int arr[], int& n, int value)
+void insertHeap(int arr[], int &n, int value)
 {
     n = n + 1;
     arr[n - 1] = value;
@@ -34,12 +34,18 @@ int main()
     //   5    3
     //  / \
     // 2   4
-    int arr[MAX] = {10, 5, 3, 2, 4};
-    int n = 5;
+    // int arr[MAX] = {10, 5, 3, 2, 4};
+    int arr[MAX];
+    // int n = 5;
+    // printarray(arr, n);
+    int n = 0;
     printarray(arr, n);
-    insertLeaf(arr, n, 50);
-    printarray(arr, n);
-    insertLeaf(arr, n, 36);
+    insertHeap(arr, n, 20);
+    insertHeap(arr, n, 10);
+    insertHeap(arr, n, 30);
+    insertHeap(arr, n, 5);
+    insertHeap(arr, n, 50);
+    insertHeap(arr, n, 40);
     printarray(arr, n);
 
     return 0;
